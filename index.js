@@ -28,6 +28,8 @@ class MortgageCalculator {
         let loanAmount = this.totalPrice - this.downPayment;
         let paymentSchedule = MortgageCalculator.calculatePaymentSchedule(loanAmount, this.interestRate, this.months, this.additionalPrincipalPayment);
         let piPayment = paymentSchedule.length ? paymentSchedule[0].totalPayment : 0;
+        let paymentSchedulePressure = MortgageCalculator.calculatePaymentSchedule(loanAmount, this.interestRate + 0.03, this.months, this.additionalPrincipalPayment);
+        let piPaymentPressure = paymentSchedulePressure.length ? paymentSchedulePressure[0].totalPayment : 0;
         let downPaymentPercentage = this.downPayment / this.totalPrice;
         let mortgageInsurance = 0;
         if (this.mortgageInsuranceEnabled && downPaymentPercentage < this.mortgageInsuranceThreshold) {
@@ -39,6 +41,7 @@ class MortgageCalculator {
         return {
             loanAmount: loanAmount,
             principalAndInterest: piPayment,
+            principalAndInterestPressure: piPaymentPressure,
             tax: propertyTax,
             insurance: homeOwnerInsurance,
             total: piPayment + propertyTax + homeOwnerInsurance + mortgageInsurance,

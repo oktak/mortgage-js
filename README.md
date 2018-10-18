@@ -1,3 +1,7 @@
+(Forked version: add Stress-Test for Hong Kong situation. That is, calculating the ratio to pay back when the interest rate rises by 3 percent.)
+ref:
+https://www.hkma.gov.hk/media/eng/doc/key-information/guidelines-and-circular/2017/20170519e2.pdf
+
 # mortgage-js
 Simple mortgage calculator written in Javascript. Determine total monthly payment. Calculate entire payment schedule with principal and interest. See how additional principal payments could affect the pay down schedule. Also accounts for property tax, homeowner insurance and private mortgage insurance.
 
